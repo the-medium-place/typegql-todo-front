@@ -33,5 +33,7 @@ mutation UpdateComplete ($id: String!) {
 }
 
 mutation DeleteTodo ($id: String!) {
-    deleteTodo (id: $id)
+    deleteTodo (id: $id) {
+        ...TodoInfo
+    }
 }

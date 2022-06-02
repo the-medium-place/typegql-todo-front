@@ -18,27 +18,30 @@ export default class TodoResolver {
         return await Todo.findOne({ where: { id } });
     }
 
-    @Mutation((_returns) => Todo)
+    @Mutation((_returns) => [Todo])
     async addTodo(@Arg("input") input: string) {
         const todo = await Todo.create({ todoContent: input });
         await todo.save();
-        return todo;
+        const allTodos = await Todo.find()
+        return allTodos;
     }
 
-    @Mutation((_returns) => Todo)
+    @Mutation((_returns) => [Todo])
     async updateComplete(@Arg("id") id: string) {
         const todo = await Todo.findOneBy({ id });
         if (!todo) throw new Error("Todo not found!");
         Object.assign(todo, { isComplete: !todo.isComplete });
         await todo.save();
-        return todo;
+        const allTodos = await Todo.find()
+        return allTodos;
     }
 
-    @Mutation(() => Boolean)
+    @Mutation(() => [Todo])
     async deleteTodo(@Arg("id") id: string) {
         const todo = await Todo.findOneBy({ id });
         if (!todo) throw new Error("Todo not found!");
         await todo.remove();
-        return true;
+        const allTodos = await Todo.find()
+        return allTodos;
     }
 }

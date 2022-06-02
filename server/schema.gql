@@ -4,9 +4,9 @@
 # -----------------------------------------------
 
 type Mutation {
-  addTodo(input: String!): Todo!
-  deleteTodo(id: String!): Boolean!
-  updateComplete(id: String!): Todo!
+  addTodo(input: String!): [Todo!]!
+  deleteTodo(id: String!): [Todo!]!
+  updateComplete(id: String!): [Todo!]!
 }
 
 type Query {

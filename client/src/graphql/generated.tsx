@@ -20,9 +20,9 @@ export type Scalars = {
 
 export type Mutation = {
   __typename?: 'Mutation';
-  addTodo: Todo;
-  deleteTodo: Scalars['Boolean'];
-  updateComplete: Todo;
+  addTodo: Array<Todo>;
+  deleteTodo: Array<Todo>;
+  updateComplete: Array<Todo>;
 };
 
 
@@ -79,21 +79,21 @@ export type AddTodoMutationVariables = Exact<{
 }>;
 
 
-export type AddTodoMutation = { __typename?: 'Mutation', addTodo: { __typename?: 'Todo', id: string, todoContent: string, createdAt: string, isComplete: boolean } };
+export type AddTodoMutation = { __typename?: 'Mutation', addTodo: Array<{ __typename?: 'Todo', id: string, todoContent: string, createdAt: string, isComplete: boolean }> };
 
 export type UpdateCompleteMutationVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-export type UpdateCompleteMutation = { __typename?: 'Mutation', updateComplete: { __typename?: 'Todo', id: string, todoContent: string, createdAt: string, isComplete: boolean } };
+export type UpdateCompleteMutation = { __typename?: 'Mutation', updateComplete: Array<{ __typename?: 'Todo', id: string, todoContent: string, createdAt: string, isComplete: boolean }> };
 
 export type DeleteTodoMutationVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-export type DeleteTodoMutation = { __typename?: 'Mutation', deleteTodo: boolean };
+export type DeleteTodoMutation = { __typename?: 'Mutation', deleteTodo: Array<{ __typename?: 'Todo', id: string, todoContent: string, createdAt: string, isComplete: boolean }> };
 
 export const TodoInfoFragmentDoc = gql`
     fragment TodoInfo on Todo {
@@ -264,9 +264,11 @@ export type UpdateCompleteMutationResult = Apollo.MutationResult<UpdateCompleteM
 export type UpdateCompleteMutationOptions = Apollo.BaseMutationOptions<UpdateCompleteMutation, UpdateCompleteMutationVariables>;
 export const DeleteTodoDocument = gql`
     mutation DeleteTodo($id: String!) {
-  deleteTodo(id: $id)
+  deleteTodo(id: $id) {
+    ...TodoInfo
+  }
 }
-    `;
+    ${TodoInfoFragmentDoc}`;
 export type DeleteTodoMutationFn = Apollo.MutationFunction<DeleteTodoMutation, DeleteTodoMutationVariables>;
 export type DeleteTodoComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<DeleteTodoMutation, DeleteTodoMutationVariables>, 'mutation'>;
 

@@ -4,6 +4,7 @@ import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import './App.css';
 import TodoList from './components/TodoList';
+import AddTodoForm from './components/AddTodoForm';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -48,6 +49,7 @@ function App() {
             Learn React
           </a> */}
         <TodoList />
+        <AddTodoForm />
         {/* </header> */}
       </div>
     </ApolloProvider>
