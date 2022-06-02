@@ -1,0 +1,34 @@
+query GetOneTodos($id: String!) {
+    oneTodo (id: $id) {
+        ...TodoInfo
+    } 
+}
+
+query AllTodos {
+    allTodos {
+        ...TodoInfo
+    }
+}
+
+# mutation MutateTodos ($id: String!, $input: String!) {
+#     addTodo (input: $input) {
+#         ...TodoInfo
+#     }
+#     deleteTodo (id: $id)
+#     updateComplete (id: $id) {
+#         ...TodoInfo
+#     }
+# }
+
+mutation AddTodo ($input: String!) {
+    addTodo (input: $input) {
+        ...TodoInfo
+    }
+}
+
+mutation UpdateTodo ($id: String!) {
+    deleteTodo (id: $id)
+    updateComplete (id: $id) {
+        ...TodoInfo
+    }
+}

@@ -1,0 +1,6 @@
+fragment TodoInfo on Todo {
+    id
+    todoContent
+    createdAt
+    isComplete
+}

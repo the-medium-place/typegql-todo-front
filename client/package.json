@@ -2,14 +2,20 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@apollo/client": "^3.6.6",
+    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/typescript-operations": "^2.4.0",
+    "@graphql-codegen/typescript-react-apollo": "^3.2.14",
+    "@graphql-codegen/typescript-type-graphql": "^2.2.12",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
+    "@types/react-dom": "^18.0.5",
     "@types/react-router-dom": "^5.1.6",
     "apollo-link-http": "^1.5.17",
     "dotenv": "^16.0.1",
@@ -17,6 +23,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
+    "type-graphql": "^1.1.1",
     "typescript": "^4.7.2",
     "web-vitals": "^2.1.4"
   },
@@ -24,7 +31,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate": "graphql-codegen --config codegen.yml",
+    "prestart": "npm run generate",
+    "predev": "npm run generate"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +55,10 @@
     ]
   },
   "devDependencies": {
-    "@types/react-dom": "^18.0.5"
+    "@graphql-codegen/cli": "2.6.2",
+    "@graphql-codegen/typescript": "2.4.11",
+    "@graphql-codegen/typescript-operations": "2.4.0",
+    "@graphql-codegen/typescript-react-apollo": "3.2.14",
+    "@graphql-codegen/typescript-type-graphql": "^2.2.12"
   }
 }

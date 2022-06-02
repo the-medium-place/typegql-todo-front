@@ -46,6 +46,6 @@ import AppDataSource from "./data-source";
   app.get("/", (_req, res) => res.end("Welcome!"));
   //   app.get("/playground", expressPlayground({ endpoint: server.graphqlPath }));
   app.listen(PORT, () =>
-    console.log(`Server running @ localhost:${PORT}${server.graphqlPath}`)
+    console.log(`GQL Server running @ http://localhost:${PORT}${server.graphqlPath}`)
   );
 })();
