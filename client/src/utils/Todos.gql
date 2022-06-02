@@ -26,9 +26,12 @@ mutation AddTodo ($input: String!) {
     }
 }
 
-mutation UpdateTodo ($id: String!) {
-    deleteTodo (id: $id)
+mutation UpdateComplete ($id: String!) {
     updateComplete (id: $id) {
         ...TodoInfo
     }
+}
+
+mutation DeleteTodo ($id: String!) {
+    deleteTodo (id: $id)
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAllTodosQuery, useGetOneTodosQuery, useAddTodoMutation, useUpdateTodoMutation } from '../../graphql/generated';
+import { useAllTodosQuery, useGetOneTodosQuery, useAddTodoMutation, useUpdateCompleteMutation, useDeleteTodoMutation } from '../../graphql/generated';
 
 export default function TodoList() {
 
@@ -17,7 +17,7 @@ export default function TodoList() {
                     data.allTodos.map(todo => {
                         return (
                             <li key={todo.id}>
-                                {todo.todoContent} -- &times;
+                                {todo.todoContent} -- <span>&times;</span>
                             </li>
                         )
                     })
