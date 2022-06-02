@@ -34,7 +34,7 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <div className="App">
+      <div className="App" style={{ padding: '60px 15% 0px 15%' }}>
         {/* <header className="App-header"> */}
         {/* <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -48,8 +48,8 @@ function App() {
           >
             Learn React
           </a> */}
-        <TodoList />
         <AddTodoForm />
+        <TodoList />
         {/* </header> */}
       </div>
     </ApolloProvider>
