@@ -9,5 +9,12 @@
         "emitDecoratorMetadata": true,
         "moduleResolution": "node",
         "strictPropertyInitialization": false
-    }
+    },
+    "include": [
+        "./src/*.ts",
+        "./src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }
