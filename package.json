@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/the-medium-place/typegql-todo-front/issues"
   },
-  "homepage": "https://github.com/the-medium-place/typegql-todo-front#readme"
+  "homepage": "https://github.com/the-medium-place/typegql-todo-front#readme",
+  "dependencies": {
+    "typescript": "^4.7.2"
+  }
 }
