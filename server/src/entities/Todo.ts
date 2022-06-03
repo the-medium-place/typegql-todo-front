@@ -15,17 +15,17 @@ import { ObjectType, Field, ID } from "type-graphql";
 export default class Todo extends BaseEntity {
     @Field(() => ID)
     @PrimaryGeneratedColumn()
-    id: string;
+    id!: string;
 
     @Field(() => String)
     @Column()
-    todoContent: string;
+    todoContent!: string;
 
     @Field(() => Boolean)
     @Column({ default: false })
-    isComplete: boolean;
+    isComplete!: boolean;
 
     @Field(() => String)
     @CreateDateColumn()
-    createdAt: Date;
+    createdAt!: Date;
 }
