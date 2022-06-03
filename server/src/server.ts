@@ -43,7 +43,18 @@ import AppDataSource from "./data-source";
   await server.start();
   server.applyMiddleware({ app });
 
-  app.get("/", (_req, res) => res.end("Welcome!"));
+  app.use(express.urlencoded({ extended: false }));
+  app.use(express.json());
+
+  if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/build')));
+  }
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
+
+  // app.get("/", (_req, res) => res.end("Welcome!"));
   //   app.get("/playground", expressPlayground({ endpoint: server.graphqlPath }));
   app.listen(PORT, () =>
     console.log(`GQL Server running @ http://localhost:${PORT}${server.graphqlPath}`)
