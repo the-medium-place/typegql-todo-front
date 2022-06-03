@@ -1,10 +1,10 @@
 {
     "type": "mysql",
-    "host": "localhost",
+    "host": "ebh2y8tqym512wqs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "port": 3306,
-    "username": "root",
-    "password": "password",
-    "database": "typegql_todo",
+    "username": "fe3xtfshyj5wqheb",
+    "password": "z7m0wk7dzc2xqiuw",
+    "database": "wlu9vapajvgft9ri",
     "entities": [
         "src/entities/**/*.ts"
     ],
