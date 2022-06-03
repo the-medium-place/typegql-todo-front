@@ -13,7 +13,7 @@ require("dotenv").config()
 const PORT = process.env.PORT || 3001;
 // import User from "./entities/User";
 // import Todo from "./entities/Todo"
-import TodoResolver from "../src/resolvers/TodoResolver"
+import TodoResolver from "./resolvers/TodoResolver"
 import AppDataSource from "./data-source";
 // import AuthPayloadResolver from "./resolvers/AuthPayloadResolver";
 // import PhotoResolver from "./resolvers/PhotoResolver";

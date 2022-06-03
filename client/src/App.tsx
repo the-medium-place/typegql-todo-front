@@ -1,5 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import './App.css';
