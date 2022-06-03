@@ -1,5 +1,5 @@
 import { DataSource } from "typeorm"
-import Todo from '../src/entities/Todo'
+import Todo from './entities/Todo'
 require("dotenv").config()
 
 export default new DataSource({
