@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node server/src/index.ts",
+    "tsc": "npx tsc",
+    "start:prod": "npm run tsc && node server/src/index.js",
     "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
@@ -27,10 +29,5 @@
   "bugs": {
     "url": "https://github.com/the-medium-place/typegql-todo-front/issues"
   },
-  "homepage": "https://github.com/the-medium-place/typegql-todo-front#readme",
-  "dependencies": {
-    "@apollo/client": "^3.6.6",
-    "dotenv": "^16.0.1",
-    "graphql": "^16.5.0"
-  }
+  "homepage": "https://github.com/the-medium-place/typegql-todo-front#readme"
 }

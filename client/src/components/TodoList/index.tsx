@@ -51,19 +51,22 @@ export default function TodoList() {
                     {
                         data.allTodos.map(todo => {
                             return (
-                                <li style={{ border: '1px slid gray', background: 'lightgray', padding: '1.3rem', marginTop: 5 }} key={todo.id}>
-                                    {todo.todoContent} --
-                                    <button
-                                        onClick={() => handleUpdateComplete(todo.id)}
-                                        style={{ background: todo.isComplete ? 'green' : 'red' }}
-                                    >
-                                        {todo.isComplete ? 'Complete' : 'Not Complete'}
-                                    </button> --
-                                    <button
-                                        onClick={() => handleDeleteTodo(todo.id)}
-                                    >
-                                        delete
-                                    </button>
+                                <li style={{ position: 'relative', border: '1px slid gray', background: todo.isComplete ? 'lightblue' : 'lightpink', padding: '1.3rem', marginTop: 5 }} key={todo.id}>
+                                    {todo.todoContent}
+                                    <div>
+                                        <button
+                                            onClick={() => handleUpdateComplete(todo.id)}
+                                        // style={{ background: todo.isComplete ? 'green' : 'red' }}
+                                        >
+                                            {todo.isComplete ? 'Complete' : 'Not Complete'}
+                                        </button>
+                                        <button
+                                            style={{ position: 'absolute', top: 5, right: 5, background: 'red', border: 'none', padding: '.3rem', color: 'white', fontWeight: 'bold' }}
+                                            onClick={() => handleDeleteTodo(todo.id)}
+                                        >
+                                            &times;
+                                        </button>
+                                    </div>
                                 </li>
                             )
                         })

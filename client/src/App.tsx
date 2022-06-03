@@ -35,22 +35,10 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App" style={{ padding: '60px 15% 0px 15%' }}>
-        {/* <header className="App-header"> */}
-        {/* <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a> */}
+        <h1 style={{ marginBottom: 60 }}><span style={{ color: 'red', fontWeight: 'bold' }}>T</span>ype-GraphQL <span style={{ color: 'red', fontWeight: 'bold' }}>T</span>ypeORM <span style={{ color: 'red', fontWeight: 'bold' }}>T</span>ypescript <span style={{ color: 'red', fontWeight: 'bold' }}>T</span>odo <span style={{ color: 'red', fontWeight: 'bold' }}>T</span>racker!</h1>
         <AddTodoForm />
         <TodoList />
-        {/* </header> */}
+
       </div>
     </ApolloProvider>
   );
