@@ -4,6 +4,7 @@
         "target": "es6",
         "module": "commonjs",
         "strict": true,
+        "skipLibCheck": true,
         "esModuleInterop": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
@@ -13,7 +14,7 @@
         "./src/*.ts",
         "./src/**/*.ts"
     ],
-    "exclude": [
-        "node_modules"
-    ]
+    "files.exclude": {
+        "**/node_modules": true
+    }
 }
