@@ -12,7 +12,8 @@
     },
     "include": [
         "./src/*.ts",
-        "./src/**/*.ts"
+        "./src/**/*.ts",
+        "./utils/*.ts"
     ],
     "files.exclude": {
         "**/node_modules": true

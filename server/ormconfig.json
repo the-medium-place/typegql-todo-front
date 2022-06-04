@@ -8,7 +8,7 @@
     "entities": [
         "src/entities/**/*.ts"
     ],
-    "synchronize": true,
+    "synchronize": false,
     "logging": true,
     "cli": {
         "entitiesDir": "src/entities",
