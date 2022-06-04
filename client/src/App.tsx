@@ -3,6 +3,11 @@ import { setContext } from '@apollo/client/link/context';
 import './App.css';
 import TodoList from './components/TodoList';
 import AddTodoForm from './components/AddTodoForm';
+import Login from './components/Login';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Register from './components/Register';
+import Auth from './utils/auth'
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -28,15 +33,24 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
+
 function App() {
 
   return (
     <ApolloProvider client={client}>
       <div className="App" style={{ padding: '60px 15% 0px 15%' }}>
         <h1 style={{ marginBottom: 60 }}><span style={{ color: 'red', fontWeight: 'bold' }}>T</span>ype-GraphQL <span style={{ color: 'red', fontWeight: 'bold' }}>T</span>ypeORM <span style={{ color: 'red', fontWeight: 'bold' }}>T</span>ypescript <span style={{ color: 'red', fontWeight: 'bold' }}>T</span>odo <span style={{ color: 'red', fontWeight: 'bold' }}>T</span>racker!</h1>
-        <AddTodoForm />
-        <TodoList />
 
+        <Router>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/signup" element={<Register />} />
+            <Route path="/user/:username" element={<TodoList />} />
+          </Routes>
+
+
+        </Router>
       </div>
     </ApolloProvider>
   );

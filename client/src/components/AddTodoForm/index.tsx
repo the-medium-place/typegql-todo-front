@@ -1,12 +1,32 @@
 import React, { useState } from 'react'
 import { useAllTodosQuery, useGetOneTodosQuery, useAddTodoMutation, useUpdateCompleteMutation, useDeleteTodoMutation } from '../../graphql/generated';
+import Auth from '../../utils/auth'
+
+type MyToken = {
+    exp: number,
+    iat: number,
+    data: {
+        username: string,
+        id: number
+    }
+}
 
 export default function AddTodoForm() {
 
     const [addTodoMutation, { data: addData, loading: addLoading, error: addError }] = useAddTodoMutation();
     if (addError) { console.log(JSON.stringify(addError)) }
+    const { data: { id: userid } } = Auth.getProfile() as MyToken
 
+    // console.log({ userid })
+
+    // try {
+    //     console.log(Auth.getProfile().data.id)
+
+    // } catch (err) {
+    //     console.log(err)
+    // }
     const [formData, setFormData] = useState('')
+
 
 
     async function handleAddTodo() {
@@ -17,7 +37,8 @@ export default function AddTodoForm() {
         try {
             const { data } = await addTodoMutation({
                 variables: {
-                    input: formData
+                    input: formData,
+                    userid: "" + userid
                 }
             })
             console.log(data)

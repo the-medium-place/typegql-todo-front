@@ -3,16 +3,26 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+"""Auth object containt JWT and User info"""
+type AuthType {
+  token: String!
+  user: User!
+}
+
 type Mutation {
-  addTodo(input: String!): [Todo!]!
+  addTodo(input: String!, userid: String!): [Todo!]!
+  createUser(password: String!, username: String!): AuthType!
   deleteTodo(id: String!): [Todo!]!
+  loginUser(password: String!, username: String!): AuthType!
   updateComplete(id: String!): [Todo!]!
 }
 
 type Query {
   allTodos: [Todo!]!
+  allUsers: [User!]!
   countTodos: Int!
   oneTodo(id: String!): Todo!
+  oneUser(id: String!): User!
 }
 
 type Todo {
@@ -20,4 +30,12 @@ type Todo {
   id: ID!
   isComplete: Boolean!
   todoContent: String!
+}
+
+type User {
+  createdAt: String!
+  id: ID!
+  password: String!
+  todos: [Todo!]!
+  username: String!
 }

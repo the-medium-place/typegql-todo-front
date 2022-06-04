@@ -10,6 +10,12 @@ query AllTodos {
     }
 }
 
+# query TodosByUser($userid: String!) {
+#     todosByUser(userid:$userid) {
+#         ...TodoInfo
+#     }
+# }
+
 # mutation MutateTodos ($id: String!, $input: String!) {
 #     addTodo (input: $input) {
 #         ...TodoInfo
@@ -20,8 +26,8 @@ query AllTodos {
 #     }
 # }
 
-mutation AddTodo ($input: String!) {
-    addTodo (input: $input) {
+mutation AddTodo ($input: String!, $userid: String!) {
+    addTodo (input: $input, userid: $userid) {
         ...TodoInfo
     }
 }

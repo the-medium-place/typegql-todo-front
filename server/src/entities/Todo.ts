@@ -7,8 +7,10 @@ import {
     CreateDateColumn,
     OneToMany,
     ManyToMany,
+    ManyToOne
 } from "typeorm";
 import { ObjectType, Field, ID } from "type-graphql";
+import User from "./User";
 
 @Entity()
 @ObjectType()
@@ -28,4 +30,7 @@ export default class Todo extends BaseEntity {
     @Field(() => String)
     @CreateDateColumn()
     createdAt!: Date;
+
+    @ManyToOne(() => User, (user) => user.todos)
+    user: User
 }

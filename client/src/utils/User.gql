@@ -1,0 +1,39 @@
+query GetAllUsers {
+    allUsers {
+        id
+        username
+    }
+}
+
+query GetOneUser ($id: String!) {
+    oneUser(id: $id) {
+        id
+        username
+        todos {
+            id
+            todoContent
+            createdAt
+            isComplete
+        }
+    }
+}
+
+mutation CreateUser($username: String!, $password: String!) {
+    createUser(username: $username, password: $password) {
+        token
+        user {
+            id
+            username
+        }
+    }
+}
+
+mutation Login($username: String!, $password: String!) {
+    loginUser(username: $username, password: $password) {
+        token
+        user {
+            id
+            username
+        }
+    }
+}

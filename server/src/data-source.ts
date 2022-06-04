@@ -1,5 +1,6 @@
 import { DataSource } from "typeorm"
 import Todo from './entities/Todo'
+import User from "./entities/User"
 require("dotenv").config()
 
 export default new DataSource({
@@ -9,7 +10,7 @@ export default new DataSource({
     username: process.env.REACT_APP_DB_USERNAME,
     password: process.env.REACT_APP_DB_PASSWORD,
     database: process.env.REACT_APP_DB_DATABASE,
-    entities: [Todo],
+    entities: [Todo, User],
     synchronize: true,
     logging: false,
 })
