@@ -48,6 +48,12 @@ export default function Login() {
                 <input type="password" placeholder="Password" name="password" onChange={handleInput} value={loginFormState.password} />
                 <button type="submit">Login</button>
             </form>
+            <br />
+            <div style={{ width: '100%', display: 'flex', padding: '1rem', justifyContent: 'center' }}>
+                <a href="/signup">
+                    <button style={{ background: 'transparent', boxShadow: 'none', border: '3px solid red', padding: '.4rem' }}>TODO: Sign up for an account</button>
+                </a>
+            </div>
         </div>
     )
 }
