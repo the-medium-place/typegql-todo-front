@@ -92,15 +92,27 @@ export default function TodoList() {
         }
         console.log({ data })
         return (
-            <div style={{ display: 'flex', justifyContent: 'center', width: '50%', margin: '20px auto', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', width: '100%', margin: '20px auto', flexDirection: 'column', alignItems: 'center' }}>
                 <Welcome />
                 <AddTodoForm />
 
-                <ul style={{ padding: '1.3rem', borderRadius: '8px', boxShadow: '0px 0px 20px rgba(0,0,0,0.4)', listStyle: 'none', width: '100%' }}>
+                <ul style={{ padding: '1.3rem', borderRadius: '8px', listStyle: 'none', width: '100%', filter: 'drop-shadow(20px 20px 5px rgba(0,0,0,0.3)' }}>
                     {
                         data.oneUser.todos.map((todo, i) => {
                             return (
-                                <li style={{ position: 'relative', border: '1px slid gray', background: todo.isComplete ? 'lightblue' : 'lightpink', padding: '1.3rem', marginTop: 5, borderTopLeftRadius: i === 0 ? 15 : 0, borderBottomRightRadius: i === data.oneUser.todos.length - 1 ? 15 : 0 }} key={todo.id}>
+                                <li
+                                    style={{
+                                        position: 'relative',
+                                        border: '1px slid gray',
+                                        background: todo.isComplete ? 'lightblue' : 'lightpink',
+                                        padding: '1.3rem',
+                                        marginTop: 5,
+                                        borderTopLeftRadius: i === 0 ? 15 : 0,
+                                        borderBottomRightRadius: i === data.oneUser.todos.length - 1 ? 15 : 0,
+                                        boxShadow: 'inset 10px 10px 30px rgba(250,250,250,0.9)'
+                                    }}
+                                    key={todo.id}
+                                >
                                     {todo.todoContent}
                                     <div>
                                         <button
